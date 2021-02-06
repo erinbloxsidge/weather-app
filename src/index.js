@@ -27,10 +27,22 @@ function formatDate(date) {
 // Temp Converstion
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let tempConversion = document.querySelector("#temperature");
-  let temperature = tempConversion.innerHTML;
-  tempConversion.innerHTML = Math.round(((temperature * 9) / 5) * 32);
+  let fahrenElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenTemp = (celsiusTemperature * 9) / 5 + 32;
+  fahrenElement.innerHTML = Math.round(fahrenTemp);
 }
+
+function convertToCelsius(event) {
+event.preventDefault();
+celsiusLink.classList.add("active");
+fahrenheitLink.classList.remove("active");
+let celsiusElement = document.querySelector("#temperature");
+celsiusElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
 
 //Change city using Search Button
 function currentWeather(response) {
@@ -46,8 +58,19 @@ function currentWeather(response) {
   let currentDescript = document.querySelector("#current-description");
   currentDescript.innerHTML = describeCondition;
 
-  document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
-  document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+  let sunriseConversion = new Date(response.data.sys.sunrise * 1000);
+  hours = sunriseConversion.getUTCHours();
+  minutes = sunriseConversion.getUTCMinutes();
+  formattedSunrise = hours.toString().padStart(2, '0') + ':' +  
+                minutes.toString().padStart(2, '0');
+  document.querySelector("#sunrise").innerHTML = formattedSunrise;
+
+  let sunsetConversion = new Date(response.data.sys.sunset * 1000);
+  hours = sunsetConversion.getUTCHours();
+  minutes = sunsetConversion.getUTCMinutes();
+  formattedSunset = hours.toString().padStart(2, '0') + ':' +  
+                minutes.toString().padStart(2, '0');
+  document.querySelector("#sunset").innerHTML = formattedSunset;
 
   let feelsLike = Math.round(response.data.main.feels_like);
   let feelsLikeTemp = document.querySelector("#feels-like");
@@ -63,6 +86,8 @@ function currentWeather(response) {
 
   let iconElement = document.querySelector("#current-icon");
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  celsiusTemperature = response.data.main.temp;
   
 
   
@@ -75,7 +100,7 @@ function currentWeather(response) {
   axios.get(apiUrl).then(currentWeather);
 }
 
-function showForcast() {
+function showForecast() {
 document.querySelector("");
 }
 
@@ -83,7 +108,7 @@ function searchLocation(city) {
   let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(currentWeather);
-  //axios.get(apiUrl).then(showForcast);
+  //axios.get(apiUrl).then(showForecast);
 }
 
 function citySubmit(event) {
@@ -124,6 +149,9 @@ navigator.geolocation.getCurrentPosition(currentLocation);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
 
 let currentDay = document.querySelector("#today");
 let currentTime = new Date();

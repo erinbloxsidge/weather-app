@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Forcast</title>
+  <title>Weather Forecast</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href=src/styles.css />
@@ -26,7 +26,7 @@
   <div class="container">
     <div class="app-wrapping">
       <div class="row">
-        <h1>Weather Forcast</h1>
+        <h1>Weather Forecast</h1>
       </div>
       <h2 class="current-date" id="today">
         Today is...
@@ -38,29 +38,26 @@
           <div class="card">
             <div class="card-body">
               <p class="card-text">
-              <h2> <span id="city-name">Londinium</span> </h2>
+              <h3> <span id="city-name">Londinium</span> </h3>
               <br>
-              <h2><span id="temperature">11º</span> <span class="units">ºC | <a href="#" id="fahrenheit-link">ºF</a>
+              <h3 class="current-temp-display"><span id="temperature">11º</span> <span class="units">
+                <a href="#" id="celsius-link" class="active">ºC</a> | <a href="#" id="fahrenheit-link">ºF</a>
                 </span>
-              </h2>
-              <h2 id="current-description">Moony</h2>
-              </p>
-              <p> <img src="" alt="" id="current-icon"> </p>
-            </div>
-          </div>
-        </div>
-
+              </h3>
+              <h3 class="text-capitalize" id="current-description">Moony</h3><img src="" alt="" id="current-icon"> 
+              </div>
+            </div> 
+          </div>     
         <div class="col-sm-6">
           <div class="card">
             <div class="card-body">
               <p class="card-text">
-              <h2><i class="fas fa-arrow-up"></i> <span id="temp-max">12º</span> | <span id="temp-min">2º</span> <i
-                  class="fas fa-arrow-down"></i></h2>
+              <h3><i class="fas fa-arrow-up"></i> <span id="temp-max">12º</span> | <span id="temp-min">2º</span> <i
+                  class="fas fa-arrow-down"></i></h3>
               <br>
-              <h2><i class="fas fa-sun"></i> <span id="sunrise">8:09</span></h2>
-
-              <h2><i class="fas fa-moon"></i> <span id="sunset">15:54</span></h2>
-              </p>
+              <h3><i class="fas fa-sun"></i> <span id="sunrise">0:00</span></h3>
+              
+              <h3><i class="fas fa-moon"></i> <span id="sunset">00:00</span></h3></p>
             </div>
           </div>
         </div>
@@ -102,10 +99,9 @@
 
       <hr>
 
-      <div class="forcast-wrapper">
+      <div class="forecast-wrapper">
         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Mon</h5>
@@ -117,7 +113,7 @@
           </div>
 
 
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Tue</h5>
@@ -128,7 +124,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Wed</h5>
@@ -139,7 +135,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Thur</h5>
@@ -150,7 +146,7 @@
             </div>
           </div>
 
-          <div class="col-md-2">
+          <div class="col-sm-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Fri</h5>
@@ -160,7 +156,17 @@
               </div>
             </div>
           </div>
-          <div class="col-1"></div>
+
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sat</h5>
+                <p class="card-text">
+                  <span id="max-day-five">2º</span> | <span id="min-day-five">9º</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

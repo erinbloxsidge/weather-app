@@ -9,10 +9,26 @@ h1 {
 }
 
 h2,
+h3,
 h5,
 p {
-  text-align: center;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #fff1eb;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0c056d;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
 }
 
 .app-wrapping {
@@ -39,12 +55,12 @@ p {
 .units {
   font-size: medium;
 }
-a {
+
+.current-temp-display .active {
+  cursor: default;
   color: #fff1eb;
-  text-decoration: none;
 }
 
-a:hover {
-  color: #0c056d;
-  cursor: pointer;
+.current-temp-display .active:hover {
+  text-decoration: none;
 }
