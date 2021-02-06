@@ -48,6 +48,23 @@ function currentWeather(response) {
 
   document.querySelector("#sunrise").innerHTML = response.data.sys.sunrise;
   document.querySelector("#sunset").innerHTML = response.data.sys.sunset;
+
+  let feelsLike = Math.round(response.data.main.feels_like);
+  let feelsLikeTemp = document.querySelector("#feels-like");
+  feelsLikeTemp.innerHTML = feelsLike;
+
+  let humidity = response.data.main.humidity;
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = humidity;
+
+  let wind = Math.round(response.data.wind.speed);
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = wind;
+
+  let iconElement = document.querySelector("#current-icon");
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  
+
   
 
   let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
@@ -60,17 +77,6 @@ function currentWeather(response) {
 
 function showForcast() {
 document.querySelector("");
-}
-
-// Unfinished
-function showAirQuality(response){
-  document.querySelector("#air-quality").innerHTML = response.list.main.aqi;
-
-  let apiKey ="5af0dbf482cffaf70daccf38ac12ef72";
-  
-  let apiUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showAirQuality);
 }
 
 function searchLocation(city) {
