@@ -100,15 +100,18 @@ function currentWeather(response) {
   axios.get(apiUrl).then(currentWeather);
 }
 
-function showForecast() {
-document.querySelector("");
+function showForecast(response) {
+  console.log(response);
+//document.querySelector("");
 }
 
 function searchLocation(city) {
   let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(currentWeather);
-  //axios.get(apiUrl).then(showForecast);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forcast?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function citySubmit(event) {
@@ -146,6 +149,12 @@ function getCurrentLocation(event){
   event.preventDefault();
 navigator.geolocation.getCurrentPosition(currentLocation);
 }
+
+//function getLatLong(location) {
+  //let apiKeyHere = "cg6CSogjamm3Fa5SjwHYzieZre4DC5RWZopgyo5FTzM";
+  //let apiUrlHere = `https://geocode.search.hereapi.com/v1/geocode?q=${location}&apiKey=${apiKeyHere}`;
+ // axios.get(apiUrlHere).then(getLatLon);
+//}
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
