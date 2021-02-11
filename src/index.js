@@ -24,6 +24,20 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatHours(timestamp){
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+return `${hours}:${minutes}`;
+}
+
 // Temp Converstion
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -85,13 +99,10 @@ function currentWeather(response) {
   windSpeed.innerHTML = wind;
 
   let iconElement = document.querySelector("#current-icon");
-  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   celsiusTemperature = response.data.main.temp;
   
-
-  
-
   let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
   let cityName = response.data.main;
   let units = "metric";
@@ -101,8 +112,29 @@ function currentWeather(response) {
 }
 
 function showForecast(response) {
-  console.log(response);
-//document.querySelector("");
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+for (let index = 0; index < 6; index++) {
+  forecast = response.data.list[index];
+  forecastElement.innerHTML += `
+        <div class="col-sm-2">
+            <div class="card">
+            <img class="card-img-top" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+              <div class="card-body">
+                <h5 class="card-title">
+                ${formatHours(forecast.dt * 1000)}
+                </h5>
+                <p class="card-text">
+                  <span id="max-day-one">${Math.round(forecast.main.temp_max)}º</span> | <span id="min-day-one">${Math.round(forecast.main.temp_min)}º</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          `;
+  }
+
 }
 
 function searchLocation(city) {
@@ -175,4 +207,4 @@ form.addEventListener("submit", citySubmit);
 let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", getCurrentLocation);
 
-searchLocation("London");
+searchLocation("London,uk");
