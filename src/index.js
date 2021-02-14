@@ -166,6 +166,41 @@ function showTemperature(response) {
   let describeCondition = response.data.weather[0].description;
   let currentDescript = document.querySelector("#current-description");
   currentDescript.innerHTML = describeCondition;
+
+   let sunriseConversion = new Date(response.data.sys.sunrise * 1000);
+  hours = sunriseConversion.getUTCHours();
+  minutes = sunriseConversion.getUTCMinutes();
+  formattedSunrise = hours.toString().padStart(2, '0') + ':' +  
+                minutes.toString().padStart(2, '0');
+  document.querySelector("#sunrise").innerHTML = formattedSunrise;
+
+  let sunsetConversion = new Date(response.data.sys.sunset * 1000);
+  hours = sunsetConversion.getUTCHours();
+  minutes = sunsetConversion.getUTCMinutes();
+  formattedSunset = hours.toString().padStart(2, '0') + ':' +  
+                minutes.toString().padStart(2, '0');
+  document.querySelector("#sunset").innerHTML = formattedSunset;
+
+  let feelsLike = Math.round(response.data.main.feels_like);
+  let feelsLikeTemp = document.querySelector("#feels-like");
+  feelsLikeTemp.innerHTML = feelsLike;
+
+  let humidity = response.data.main.humidity;
+  let currentHumidity = document.querySelector("#humidity");
+  currentHumidity.innerHTML = humidity;
+
+  let wind = Math.round(response.data.wind.speed);
+  let windSpeed = document.querySelector("#wind-speed");
+  windSpeed.innerHTML = wind;
+
+  let iconElement = document.querySelector("#current-icon");
+  iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+
+  let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
+  let cityName = response.data.main;
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function currentLocation(location) {
@@ -186,11 +221,6 @@ function getCurrentLocation(event){
 navigator.geolocation.getCurrentPosition(currentLocation);
 }
 
-//function getLatLong(location) {
-  //let apiKeyHere = "cg6CSogjamm3Fa5SjwHYzieZre4DC5RWZopgyo5FTzM";
-  //let apiUrlHere = `https://geocode.search.hereapi.com/v1/geocode?q=${location}&apiKey=${apiKeyHere}`;
- // axios.get(apiUrlHere).then(getLatLon);
-//}
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);

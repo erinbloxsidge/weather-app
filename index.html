@@ -26,11 +26,43 @@
   <div class="container">
     <div class="app-wrapping">
       <div class="row">
-        <h1>Weather Forecast</h1>
+        <div class="col-sm-12">
+
+          <form id="search-form">
+            <div class="row">
+              <div class="col-sm-6">
+                <input type="search" placeholder="Search for a place..." autocomplete="off" autofocus="on" class="form-control"
+                  id="search-text-input">
+              </div>
+          
+              <div class="col-sm-2">
+                <div class="search-button">
+                  <input type="submit" value="Search" class="btn btn-outline-light">
+                </div>
+              </div>
+          
+              <div class="col-sm-2">
+                <div class="location-button">
+                  <input class="btn btn-outline-light" type="submit" value="Current Location" id="current-location">
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-sm-2"></div>
+          </form>
+        </div>
       </div>
-      <h2 class="current-date" id="today">
-        Today is...
-      </h2>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Weather Forecast</h1>
+        </div>
+      </div>
+      <div class="row">
+        <h2 class="current-date" id="today">
+          Today is...
+        </h2>
+      </div>
+      
 
 
       <div class="row">
@@ -59,8 +91,6 @@
           </div>
         </div>
       </div>
-
-      <hr>
 
       <div class="row">
         <div class="col-sm-4">
@@ -93,55 +123,21 @@
           </div>
         </div>
       </div>
-
-      <hr>
-
-      <div class="forecast-wrapper">
-        <div class="row" id="forecast">
-          
-
-        </div>
-      </div>
-
-      <form id="search-form">
-
-        <div class="row">
-          <div class="col-sm-6">
-            <input type="search" placeholder="Search for a place..." autocomplete="off" autofocus="on"
-              class="form-control" id="search-text-input">
-          </div>
-
-          <div class="col-sm-2">
-            <div class="search-button">
-              <input type="submit" value="Search" class="btn btn-outline-light">
-            </div>
-          </div>
-
-          <div class="col-sm-2">
-            <div class="location-button">
-              <input class="btn btn-outline-light" type="submit" value="Current Location" id="current-location">
-            </div>
+      
+      
+        <div class="forecast-wrapper">
+          <div class="row" id="forecast">
           </div>
         </div>
-
-        <div class="col-sm-2"></div>
-
-    </div>
-    </form>
-
-
-
-
-
+      
   </div>
   <footer class="footer">
     <div class="container">
-      Coded by Erin Bloxsidge <a href="https://www.linkedin.com/in/erinbloxsidge/"><i class="fab fa-linkedin"></i></a>
+      Open Source Code by Erin Bloxsidge <a href="https://www.linkedin.com/in/erinbloxsidge/"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/erinbloxsidge"><i class="fab fa-github-square"></i></a>
       <a href="https://twitter.com/erinbloxsidge"><i class="fab fa-twitter-square"></i></a>
     </div>
   </footer>
   <script src="src/index.js"></script>
 </body>
-
 </html>
