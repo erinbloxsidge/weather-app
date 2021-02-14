@@ -111,6 +111,7 @@ function currentWeather(response) {
   axios.get(apiUrl).then(currentWeather);
 }
 
+
 function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
