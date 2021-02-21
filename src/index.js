@@ -120,19 +120,14 @@ function showForecast(response) {
 for (let index = 0; index < 6; index++) {
   forecast = response.data.list[index];
   forecastElement.innerHTML += `
-        <div class="col-sm-2">
-            <div class="card">
-            <img class="card-img-top" src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
-              <div class="card-body">
-                <h5 class="card-title">
+        
+  <div class="col-sm-2" id="sixday-forecast">         
+  <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+
                 ${formatHours(forecast.dt * 1000)}
-                </h5>
-                <p class="card-text">
-                  <span id="max-day-one">${Math.round(forecast.main.temp_max)}º</span> | <span id="min-day-one">${Math.round(forecast.main.temp_min)}º</span>
-                </p>
-              </div>
-            </div>
-          </div>
+
+                  <span id="max-day-one"><strong>${Math.round(forecast.main.temp_max)}º</strong></span> | <span id="min-day-one">${Math.round(forecast.main.temp_min)}º</span>
+                  </div>
           `;
   }
 
@@ -212,7 +207,7 @@ function currentLocation(location) {
 
   axios.get(apiUrl).then(showTemperature);
 
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?qlat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(showForecast);
 }
 

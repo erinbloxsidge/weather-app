@@ -7,10 +7,11 @@ h1 {
   text-align: center;
   font-family: "Major Mono Display", monospace;
   margin-top: 10px;
+  font-size: 32px;
 }
 
 h2,
-h3,
+h4,
 h5,
 p {
   font-family: "Montserrat", sans-serif;
@@ -49,10 +50,6 @@ img {
   border-radius: 25px;
 }
 
-.footer {
-  margin-top: 10px;
-  text-align: right;
-}
 .units {
   font-size: medium;
 }
@@ -64,4 +61,26 @@ img {
 
 .current-temp-display .active:hover {
   text-decoration: none;
+}
+
+.forecast-wrapper {
+  text-align: center;
+}
+
+.social-icons {
+  font-size: 24px;
+}
+
+#signature {
+  text-align: center;
+}
+
+#temperature {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#city-name {
+  font-size: 30px;
+  font-family: "Major Mono Display", monospace;
 }

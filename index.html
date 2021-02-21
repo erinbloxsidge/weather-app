@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Forecast</title>
+  <title>How's the Weather Today?</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href=src/styles.css />
@@ -54,41 +54,45 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <h1>Weather Forecast</h1>
+          <h1>Weather Forecast</h1> 
+          <h4 class="current-date" id="today"></h4>
         </div>
       </div>
-      <div class="row">
-        <h2 class="current-date" id="today">
-          Today is...
-        </h2>
-      </div>
       
-
-
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-body">
               <p class="card-text">
-              <h3> <span id="city-name">Londinium</span> </h3>
+              <h4> <span id="city-name"></span> </h4>
               <br>
-              <h3 class="current-temp-display"><span id="temperature">11º</span> <span class="units">
+              <h5 class="current-temp-display"><span id="temperature">11º</span> <span class="units">
                 <a href="#" id="celsius-link" class="active">ºC</a> | <a href="#" id="fahrenheit-link">ºF</a>
-                </span>
-              </h3>
-              <h3 class="text-capitalize" id="current-description">Moony</h3><img src="" alt="" id="current-icon"> 
+              </span>
+              </h5>
               </div>
             </div> 
           </div>     
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="card">
             <div class="card-body">
               <p class="card-text">
-              <h3><i class="fas fa-sun"></i></h3>
-              <h3>Sunrise <span id="sunrise">0:00</span></h3>
-              <h3>Sunset <span id="sunset">00:00</span></h3></p>
+                 <img src="" alt="" id="current-icon">
+                <h5 class="text-capitalize" id="current-description"></h5>
+              </p>
             </div>
           </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">
+                <h5></h5>
+              <h5><i class="fas fa-sun"></i> Sunrise <span id="sunrise">0:00</span></h5>
+              <br>
+              <h5><i class="fas fa-moon"></i> Sunset <span id="sunset">00:00</span></p></h5>
+              </div>
+           </div>        
         </div>
       </div>
 
@@ -97,7 +101,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Feels Like</h5>
-              <p class="card-text"><span id="feels-like"> Cold!</span> ºC
+              <p class="card-text"><span id="feels-like"> </span> ºC
               </p>
             </div>
           </div>
@@ -107,7 +111,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Humidity</h5>
-              <p class="card-text"><span id="humidity">11</span> %
+              <p class="card-text"><span id="humidity"></span> %
               </p>
             </div>
           </div>
@@ -117,7 +121,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Wind Speed</h5>
-              <p class="card-text"><span id="wind-speed"> Fast!</span> m/s
+              <p class="card-text"><span id="wind-speed"></span> m/s
               </p>
             </div>
           </div>
@@ -129,15 +133,19 @@
           <div class="row" id="forecast">
           </div>
         </div>
-      
   </div>
-  <footer class="footer">
-    <div class="container">
-      Open Source Code by Erin Bloxsidge <a href="https://www.linkedin.com/in/erinbloxsidge/"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/erinbloxsidge"><i class="fab fa-github-square"></i></a>
-      <a href="https://twitter.com/erinbloxsidge"><i class="fab fa-twitter-square"></i></a>
-    </div>
-  </footer>
+  
+  <div class="container">
+    <div id="signature">
+      <a href="https://github.com/erinbloxsidge/weather-app">Open-source code</a> by Erin Bloxsidge
+        <div class="social-icons"> 
+          <a href="https://github.com/erinbloxsidge" target="_blank"><i class="fab fa-github-square"></i></a>
+          <a href="https://www.linkedin.com/in/erinbloxsidge/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/erinbloxsidge" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        </div>
+      </div>
+  </div>
+  
   <script src="src/index.js"></script>
 </body>
 </html>
