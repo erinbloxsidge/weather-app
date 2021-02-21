@@ -102,13 +102,6 @@ function currentWeather(response) {
   iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
   celsiusTemperature = response.data.main.temp;
-  
-  let apiKey = "5af0dbf482cffaf70daccf38ac12ef72";
-  let cityName = response.data.main;
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${units}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(currentWeather);
 }
 
 
